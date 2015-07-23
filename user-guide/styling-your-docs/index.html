@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Styling your docs - Demo</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Styling your docs";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Demo</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>User guide</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configuration/">Configuration</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../custom-themes/">Custom themes</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deploying-your-docs/">Deploying your docs</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Styling your docs</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#styling-your-docs">Styling your docs</a></li>
+                
+                    <li><a class="toctree-l4" href="#built-in-themes">Built-in themes</a></li>
+                
+                    <li><a class="toctree-l4" href="#bootstrap-and-bootswatch-themes">Bootstrap and Bootswatch Themes</a></li>
+                
+                    <li><a class="toctree-l4" href="#customising-a-theme">Customising a Theme</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../writing-your-docs/">Writing your docs</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Demo</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>User guide &raquo;</li>
+        
+      
+    
+    <li>Styling your docs</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="styling-your-docs">Styling your docs</h1>
+<p>How to style and theme your documentation.</p>
+<hr />
+<p>MkDocs includes a number of different <a href="#built-in-themes">builtin themes</a> and
+<a href="#bootstrap-and-bootswatch-themes">external themes</a> which can easily be
+<a href="#customising-a-theme">customised with extra CSS or JavaScript</a> or you can
+create a <a href="/user-guide/custom-themes.md">custom theme</a> for your documentation.</p>
+<p>To use a theme that is included in MkDocs, simply add this to your
+<code>mkdocs.yml</code> config file.</p>
+<pre><code>theme: readthedocs
+</code></pre>
+<p>Replace <a href="#readthedocs"><code>readthedocs</code></a> with any of the <a href="#built-
+in-themes">builtin themes</a> listed below.</p>
+<p>To create a new custom theme or more heavily customise an existing theme, see
+the <a href="#custom-themes">custom themes</a> section below.</p>
+<h2 id="built-in-themes">Built-in themes</h2>
+<h3 id="mkdocs">mkdocs</h3>
+<p><img alt="mkdocs" src="../../img/mkdocs.png" /></p>
+<h3 id="readthedocs">readthedocs</h3>
+<p><img alt="ReadTheDocs" src="https://docs.readthedocs.org/en/latest/_images/screen_mobile.png" /></p>
+<h2 id="bootstrap-and-bootswatch-themes">Bootstrap and Bootswatch Themes</h2>
+<p>MkDocs also includes themes provided by two packages. <a href="http://mkdocs.github.io/mkdocs-bootstrap/">MkDocs Bootstrap</a> and
+<a href="http://mkdocs.github.io/mkdocs-bootswatch/">MkDocs Bootswatch</a>. The Bootstrap theme provides a theme based on <a href="http://getbootstrap.com/">Bootstrap</a>
+and the Bootstrap theme provides 12 different themed Bootstrap themes based on
+the <a href="http://bootswatch.com/">Bootswatch</a> project.</p>
+<p>!!! note</p>
+<pre><code>The Bootstrap and Bootswatch themes will not be included by default from
+MkDocs version 1.0. They will need to be installed manually with `pip
+install mkdocs-bootstrap` or `pip install mkdocs-bootswatch`.
+</code></pre>
+<h4 id="bootstrap">Bootstrap</h4>
+<p><img alt="Bootstrap" src="http://bootstrapdocs.com/v2.3.1/docs/assets/img/examples/bootstrap-example-fluid.png" /></p>
+<h4 id="amelia">Amelia</h4>
+<p><img alt="Amelia" src="http://bootswatch.com/2/amelia/thumbnail.png" /></p>
+<h4 id="cerulean">Cerulean</h4>
+<p><img alt="Cerulean" src="http://bootswatch.com/cerulean/thumbnail.png" /></p>
+<h4 id="cosmo">Cosmo</h4>
+<p><img alt="Cosmo" src="http://bootswatch.com/cosmo/thumbnail.png" /></p>
+<h4 id="cyborg">Cyborg</h4>
+<p><img alt="Cyborg" src="http://bootswatch.com/cyborg/thumbnail.png" /></p>
+<h4 id="flatly">Flatly</h4>
+<p><img alt="Flatly" src="http://bootswatch.com/flatly/thumbnail.png" /></p>
+<h4 id="journal">Journal</h4>
+<p><img alt="Journal" src="http://bootswatch.com/journal/thumbnail.png" /></p>
+<h4 id="readable">Readable</h4>
+<p><img alt="Readable" src="http://bootswatch.com/readable/thumbnail.png" /></p>
+<h4 id="simplex">Simplex</h4>
+<p><img alt="Simplex" src="http://bootswatch.com/simplex/thumbnail.png" /></p>
+<h4 id="slate">Slate</h4>
+<p><img alt="Slate" src="http://bootswatch.com/slate/thumbnail.png" /></p>
+<h4 id="spacelab">Spacelab</h4>
+<p><img alt="Spacelab" src="http://bootswatch.com/spacelab/thumbnail.png" /></p>
+<h4 id="united">United</h4>
+<p><img alt="United" src="http://bootswatch.com/united/thumbnail.png" /></p>
+<h4 id="yeti">Yeti</h4>
+<p><img alt="Yeti" src="http://bootswatch.com/yeti/thumbnail.png" /></p>
+<h2 id="customising-a-theme">Customising a Theme</h2>
+<p>The <a href="/user-guide/configuration.md#extra_css">extra_css</a> and <a href="/user-guide/configuration.md#extra_javascript">extra_javascript</a> configuration options can be used to
+make tweaks and customisations to existing themes. To use these, you simply
+need to include either CSS or JavaScript files within your <a href="../../user-guide/configuration/#docs_dir">documentation
+directory</a>.</p>
+<p>For example, to change the colour of the headers in your documentation, create
+a file called <code>extra.css</code> and place it next to the documentation Markdown. In
+that file add the following CSS.</p>
+<pre><code class="CSS">h1 {
+  color: red;
+}
+</code></pre>
+
+<p>!!! Warning</p>
+<pre><code>If you are deploying your documentation with [ReadTheDocs]. You will need
+to explicitly list the CSS and JavaScript files you want to include inf
+your config. To do this, add the following to your mkdocs.yml.
+
+    extra_css: [extra.css]
+</code></pre>
+<p>After making these changes, they should be visible when you run <code>mkdocs serve</code>
+- if you already had this running, you should see that the CSS changes were
+automatically picked up and the documentation will be updated.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../writing-your-docs/" class="btn btn-neutral float-right" title="Writing your docs"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../deploying-your-docs/" class="btn btn-neutral" title="Deploying your docs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../deploying-your-docs/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../writing-your-docs/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

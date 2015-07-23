@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Custom themes - Demo</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Custom themes";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Demo</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>User guide</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configuration/">Configuration</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Custom themes</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#custom-themes">Custom themes</a></li>
+                
+                    <li><a class="toctree-l4" href="#creating-a-custom-theme">Creating a custom theme</a></li>
+                
+                    <li><a class="toctree-l4" href="#basic-theme">Basic theme</a></li>
+                
+                    <li><a class="toctree-l4" href="#template-variables">Template Variables</a></li>
+                
+                    <li><a class="toctree-l4" href="#search-and-themes">Search and themes</a></li>
+                
+                    <li><a class="toctree-l4" href="#packaging-themes">Packaging Themes</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deploying-your-docs/">Deploying your docs</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../styling-your-docs/">Styling your docs</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../writing-your-docs/">Writing your docs</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Demo</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>User guide &raquo;</li>
+        
+      
+    
+    <li>Custom themes</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="custom-themes">Custom themes</h1>
+<p>A guide to creating and distributing custom themes.</p>
+<hr />
+<p>When creating a new theme, you can either follow the steps in this guide to
+create one from scratch or you can download the <code>mkdocs-basic-theme</code> as a
+basic, yet complete, theme with all the boilerplate required. <strong>You can find
+this base theme on <a href="https://github.com/mkdocs/mkdocs-basic-theme">GitHub</a></strong>.
+It contains detailed comments in the code to describe the different features
+and their usage.</p>
+<h2 id="creating-a-custom-theme">Creating a custom theme</h2>
+<p>The bare minimum required for a custom theme is a <code>base.html</code> <a href="http://jinja.pocoo.org/docs/dev/">Jinja2
+template</a> file. This should be placed in a directory which will be the
+<code>theme_dir</code> and it should be created next to the <code>mkdocs.yml</code> configuration
+file. Within <code>mkdocs.yml</code>, specify the <code>theme_dir</code> option and set it to the
+name of the directory containing <code>base.html</code>. For example, given this example
+project layout:</p>
+<pre><code>mkdocs.yml
+docs/
+    index.md
+    about.md
+custom_theme/
+    base.html
+    ...
+</code></pre>
+<p>You would include the following setting to use the custom theme directory:</p>
+<pre><code>theme_dir: 'custom_theme'
+</code></pre>
+<p>If used in combination with the <code>theme</code> configuration value a custom theme can
+be used to replace only specific parts of a built-in theme. For example, with
+the above layout and if you set <code>theme: mkdocs</code> then the <code>base.html</code> file
+would replace that in the theme but otherwise it would remain the same. This
+is useful if you want to make small adjustments to an existing theme.</p>
+<h2 id="basic-theme">Basic theme</h2>
+<p>The simplest <code>base.html</code> file is the following:</p>
+<pre><code class="django">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;{% if page_title %}{{ page_title }} - {% endif %}{{ site_name }}&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    {{ content }}
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Article content from each page specified in <code>mkdocs.yml</code> is inserted using the
+<code>{{ content }}</code> tag. Stylesheets and scripts can be brought into this theme as
+with a normal HTML file. Navbars and tables of contents can also be generated
+and included automatically, through the <code>nav</code> and <code>toc</code> objects, respectively.
+If you wish to write your own theme, it is recommended to start with one of
+the <a href="https://github.com/mkdocs/mkdocs/tree/master/mkdocs/themes">built-in themes</a> and modify it accordingly.</p>
+<h2 id="template-variables">Template Variables</h2>
+<p>Each template in a theme is built with a template context. These are the
+variables that are available to themes. The context varies depending on the
+template that is being built. At the moment templates are either built with
+the global context or with a page specific context. The global context is used
+for HTML pages that don't represent an individual Markdown document, for
+example a 404.html page or search.html.</p>
+<h3 id="global-context">Global Context</h3>
+<p>The following variables in the context map directly the <a href="/user-guide/configuration.md">configuration options
+</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Variable Name</th>
+<th>Configuration name</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>site_name</td>
+<td><a href="../configuration/#site_name">site_name</a></td>
+<td></td>
+</tr>
+<tr>
+<td>site_author</td>
+<td><a href="../configuration/#site_author">site_author</a></td>
+<td></td>
+</tr>
+<tr>
+<td>favicon</td>
+<td><a href="../configuration/#site_favicon">site_favicon</a></td>
+<td></td>
+</tr>
+<tr>
+<td>page_description</td>
+<td><a href="../configuration/#site_description">site_description</a></td>
+<td></td>
+</tr>
+<tr>
+<td>repo_url</td>
+<td><a href="../configuration/#repo_url">repo_url</a></td>
+<td></td>
+</tr>
+<tr>
+<td>repo_name</td>
+<td><a href="../configuration/#repo_name">repo_name</a></td>
+<td></td>
+</tr>
+<tr>
+<td>site_url</td>
+<td><a href="../configuration/#site_url">site_url</a></td>
+<td></td>
+</tr>
+<tr>
+<td>extra_css</td>
+<td><a href="../configuration/#extra_css">extra_css</a></td>
+<td></td>
+</tr>
+<tr>
+<td>extra_javascript</td>
+<td><a href="../configuration/#extra_javascript">extra_javascript</a></td>
+<td></td>
+</tr>
+<tr>
+<td>extra</td>
+<td><a href="../configuration/#extra">extra</a></td>
+<td></td>
+</tr>
+<tr>
+<td>include_nav</td>
+<td><a href="../configuration/#include_nav">include_nav</a></td>
+<td></td>
+</tr>
+<tr>
+<td>include_next_prev</td>
+<td><a href="../configuration/#include_next_prev">include_next_prev</a></td>
+<td></td>
+</tr>
+<tr>
+<td>copyright</td>
+<td><a href="../configuration/#copyright">copyright</a></td>
+<td></td>
+</tr>
+<tr>
+<td>google_analytics</td>
+<td><a href="../configuration/#google_analytics">google_analytics</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The following variables provide information about the navigation and location.</p>
+<h4 id="nav">nav</h4>
+<p>The <code>nav</code> variable is used to create the navigation for the documentation.
+Following is a basic usage example which outputs the first and second level
+navigation as a nested list.</p>
+<pre><code class="django">&lt;ul&gt;
+  {% for nav_item in nav %}
+      {% if nav_item.children %}
+          &lt;li&gt;{{ nav_item.title }}
+              &lt;ul&gt;
+              {% for nav_item in nav_item.children %}
+                  &lt;li class=&quot;{% if nav_item.active%}current{%endif%}&quot;&gt;
+                      &lt;a href=&quot;{{ nav_item.url }}&quot;&gt;{{ nav_item.title }}&lt;/a&gt;
+                  &lt;/li&gt;
+              {% endfor %}
+              &lt;/ul&gt;
+          &lt;/li&gt;
+      {% else %}
+          &lt;li class=&quot;{% if nav_item.active%}current{%endif%}&quot;&gt;
+              &lt;a href=&quot;{{ nav_item.url }}&quot;&gt;{{ nav_item.title }}&lt;/a&gt;
+          &lt;/li&gt;
+      {% endif %}
+
+  {% endfor %}
+&lt;/ul&gt;
+</code></pre>
+
+<h4 id="base_url">base_url</h4>
+<p>The <code>base_url</code> provides a relative path to the root of the MkDocs project.
+This makes it easy to include links to static assets in your theme. For
+example, if your theme includes a <code>js</code> folder, to include <code>theme.js</code> from that
+folder on all pages you would do this:</p>
+<pre><code class="django">&lt;script src=&quot;{{ base_url }}/js/theme.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<h4 id="homepage_url">homepage_url</h4>
+<p>Provides a relative path to the documentation homepage.</p>
+<h4 id="mkdocs_version">mkdocs_version</h4>
+<p>Contains the current MkDocs version.</p>
+<h4 id="build_date_utc">build_date_utc</h4>
+<p>A Python datetime object that represents the date and time the documentation
+was built in UTC. This is useful for showing how recently the documentation
+was updated.</p>
+<h3 id="page-context">Page Context</h3>
+<p>The page context includes all of the above Global context and the following
+additional variables.</p>
+<h4 id="page_title">page_title</h4>
+<p>Contains the Title for the current page.</p>
+<h4 id="page_description">page_description</h4>
+<p>Contains the description for the current page on the homepage, it is blank on
+other pages.</p>
+<h4 id="content">content</h4>
+<p>The rendered Markdown as HTML, this is the contents of the documentation.</p>
+<h4 id="toc">toc</h4>
+<p>An object representing the Table of contents for a page. Displaying the table
+of contents as a simple list can be achieved like this.</p>
+<pre><code class="django">&lt;ul&gt;
+{% for toc_item in toc %}
+    &lt;li&gt;&lt;a href=&quot;{{ toc_item.url }}&quot;&gt;{{ toc_item.title }}&lt;/a&gt;&lt;/li&gt;
+    {% for toc_item in toc_item.children %}
+        &lt;li&gt;&lt;a href=&quot;{{ toc_item.url }}&quot;&gt;{{ toc_item.title }}&lt;/a&gt;&lt;/li&gt;
+    {% endfor %}
+{% endfor %}
+&lt;/ul&gt;
+</code></pre>
+
+<h4 id="meta">meta</h4>
+<p>A mapping of the metadata included at the top of the markdown page. In this
+example we define a <code>source</code> property above the page title.</p>
+<pre><code class="no-highlight">source: generics.py
+        mixins.py
+
+# Page title
+
+Content...
+</code></pre>
+
+<p>A template can access this metadata for the page with the <code>meta.source</code>
+variable. This could then be used to link to source files related to the
+documentation page.</p>
+<pre><code class="django">{% for filename in meta.source %}
+  &lt;a class=&quot;github&quot; href=&quot;https://github.com/.../{{ filename }}&quot;&gt;
+    &lt;span class=&quot;label label-info&quot;&gt;{{ filename }}&lt;/span&gt;
+  &lt;/a&gt;
+{% endfor %}
+</code></pre>
+
+<h4 id="canonical_url">canonical_url</h4>
+<p>The full, canonical URL to the current page. This includes the site_url from
+the configuration.</p>
+<h4 id="current_page">current_page</h4>
+<p>The page object for the current page. The page path and url properties can be
+displayed like this.</p>
+<pre><code class="django">&lt;h1&gt;{{ current_page.title }}&lt;/h1&gt;
+&lt;p&gt; This page is at {{ current_page.url }}&lt;/p&gt;
+</code></pre>
+
+<h4 id="previous_page">previous_page</h4>
+<p>The page object for the previous  page. The usage is the same as for
+<code>current_page</code>.</p>
+<h4 id="next_page">next_page</h4>
+<p>The page object for the next page.The usage is the same as for <code>current_page</code>.</p>
+<h3 id="extra-context">Extra Context</h3>
+<p>Additional variables can be passed to the template with the
+<a href="/user-guide/configuration.md#extra"><code>extra</code></a> configuration option. This is a set of key value
+pairs that can make custom templates far more flexible.</p>
+<p>For example, this could be used to include the project version of all pages
+and a list of links related to the project. This can be achieved with the
+following <code>extra</code> configuration:</p>
+<pre><code class="yaml">extra:
+    version: 0.13.0
+    links:
+        - https://github.com/mkdocs
+        - https://docs.readthedocs.org/en/latest/builds.html#mkdocs
+        - http://www.mkdocs.org/
+</code></pre>
+
+<p>And then displayed with this HTML in the custom theme.</p>
+<pre><code class="django">{{ config.extra.version }}
+
+{% if config.extra.links %}
+  &lt;ul&gt;
+  {% for link in config.extra.links %}
+      &lt;li&gt;{{ link }}&lt;/li&gt;
+  {% endfor %}
+  &lt;/ul&gt;
+{% endif %}
+</code></pre>
+
+<h2 id="search-and-themes">Search and themes</h2>
+<p>As of MkDocs <code>0.13</code> client side search support has been added to MkDocs with
+<a href="http://lunrjs.com/">Lunr.js</a>.</p>
+<p>Search can either be added to every page in the theme or to a dedicated
+template which must be named <code>search.html</code>. The search template will be build
+with the same name and can be viewable with <code>mkdocs serve</code> at
+<code>http://localhost:8000/search.html</code>. An example of the two different
+approaches can be seen by comparing the <code>mkdocs</code> and <code>readthedocs</code> themes.</p>
+<p>The following HTML needs to be added to the theme so the JavaScript is loaded
+for Lunr.js.</p>
+<pre><code class="django">&lt;script&gt;var base_url = '{{ base_url }}';&lt;/script&gt;
+&lt;script data-main=&quot;{{ base_url }}/mkdocs/js/search.js&quot; src=&quot;{{ base_url }}/mkdocs/js/require.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<p>!!! note</p>
+<pre><code>The above JavaScript will download the search index, for larger
+documentation projects this can be a heavy operation. In those cases, it
+is suggested that you either use the `search.html` approach to only
+include search on one page or load the JavaScript on an event like a form
+submit.
+</code></pre>
+<p>This loads the JavaScript and sets a global variable <code>base_url</code> which allows
+the JavaScript to make the links relative to the current page. The above
+JavaScript, with the following HTML in a <code>search.html</code> template will add a
+full search implementation to your theme.</p>
+<pre><code class="django">&lt;h1 id=&quot;search&quot;&gt;Search Results&lt;/h1&gt;
+
+&lt;form action=&quot;search.html&quot;&gt;
+  &lt;input name=&quot;q&quot; id=&quot;mkdocs-search-query&quot; type=&quot;text&quot; class=&quot;search_input search-query ui-autocomplete-input&quot; placeholder=&quot;Search the Docs&quot; autocomplete=&quot;off&quot;&gt;
+&lt;/form&gt;
+
+&lt;div id=&quot;mkdocs-search-results&quot;&gt;
+  Sorry, page not found.
+&lt;/div&gt;
+</code></pre>
+
+<p>This works by looking for the specific ID's used in the above HTML. The input
+for the user to type the search query must have the ID <code>mkdocs-search-query</code>
+and <code>mkdocs-search-results</code> is the directory where the results will be placed.</p>
+<h2 id="packaging-themes">Packaging Themes</h2>
+<p>MkDocs makes use of <a href="https://packaging.python.org/en/latest/">Python packaging</a> to distribute themes. This comes with a
+few requirements.</p>
+<p>To see an example of a package containing one theme, see the <a href="http://mkdocs.github.io/mkdocs-bootstrap/">MkDocs Bootstrap
+theme</a> and to see a package that contains many themes, see the <a href="http://mkdocs.github.io/mkdocs-bootswatch/">MkDocs
+Bootswatch theme</a>.</p>
+<h3 id="package-layout">Package Layout</h3>
+<p>The following layout is recommended for themes. Two files at the top level
+directory called <code>MANIFEST.in</code> amd <code>setup.py</code>. Then a directory with the name
+of your theme and containing a <code>base.html</code> file and a <code>__init__.py</code>.</p>
+<pre><code class="no-highlight">.
+|-- MANIFEST.in
+|-- theme_name
+|   |-- base.html
+|   |-- __init__.py
+`-- setup.py
+</code></pre>
+
+<p>The <code>MANIFEST.in</code> file should contain the following contents but with
+theme_name updated and any extra file extensions added to the include.</p>
+<pre><code class="no-highlight">recursive-include theme_name *.ico *.js *.css *.png *.html *.eot *.svg *.ttf *.woff
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+</code></pre>
+
+<p>The <code>setup.py</code> should include the following text with the modifications
+described below.</p>
+<pre><code class="python">from setuptools import setup, find_packages
+
+VERSION = '0.0.1'
+
+
+setup(
+    name=&quot;mkdocs-themename&quot;,
+    version=VERSION,
+    url='',
+    license='',
+    description='',
+    author='',
+    author_email='',
+    packages=find_packages(),
+    include_package_data=True,
+    entry_points={
+        'mkdocs.themes': [
+            'themename = theme_name',
+        ]
+    },
+    zip_safe=False
+)
+</code></pre>
+
+<p>Fill in the URL, license, description, author and author email address.</p>
+<p>The name should follow the convention <code>mkdocs-themename</code> (like <code>mkdocs-
+bootstrap</code> and <code>mkdocs-bootswatch</code>), starting with MkDocs, using hyphens to
+separate words and including the name of your theme.</p>
+<p>Most of the rest of the file can be left unedited. The last section we need to
+change is the entry_points. This is how MkDocs finds the theme(s) you are
+including in the package. The name on the left is the one that users will use
+in their mkdocs.yml and the one on the right is the directory containing your
+theme files.</p>
+<p>The directory you created at the start of this section with the base.html file
+should contain all of the other theme files. The minimum requirement is that
+it includes a <code>base.html</code> for the theme. It <strong>must</strong> also include a
+<code>__init__.py</code> file which should be empty, this file tells Python that the
+directory is a package.</p>
+<h3 id="distributing-themes">Distributing Themes</h3>
+<p>With the above changes, your theme should now be ready to install. This can be
+done with pip, using <code>pip install .</code> if you are still in the same directory as
+the setup.py.</p>
+<p>Most Python packages, including MkDocs, are distributed on PyPI. To do this,
+you should run the following command.</p>
+<pre><code class="no-highlight">python setup.py register
+</code></pre>
+
+<p>If you don't have an account setup, you should be prompted to create one.</p>
+<p>For a much more detailed guide, see the official Python packaging
+documentation for <a href="">Packaging and Distributing Projects</a>.</p>
+<p>https://packaging.python.org/en/latest/distributing.html</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../deploying-your-docs/" class="btn btn-neutral float-right" title="Deploying your docs"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../configuration/" class="btn btn-neutral" title="Configuration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../configuration/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../deploying-your-docs/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
